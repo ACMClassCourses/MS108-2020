@@ -20,3 +20,6 @@
   4. Whatever more, but discuss with TA first. 
 
 - A design meeting part of a requirement can get part of corresponding points. 
+
+#### Details
+
