@@ -1,12 +1,12 @@
 # MS108-2020
 
-**Updating...**
+**Testcase is updating...**
 
 #### Requirement
 
 ##### Basic Requirement
 
-- Use Verilog to implement a CPU supporting part of RV32I Instruction set(2.1-2.6 in [RISC-V user manual][https://riscv.org//wp-content/uploads/2017/05/riscv-spec-v2.2.pdf]), with the provided hci.v and io.c in this repository. 
+- Use Verilog to implement a CPU supporting part of RV32I Instruction set(2.1-2.6 in [RISC-V user manual][https://riscv.org//wp-content/uploads/2017/05/riscv-spec-v2.2.pdf]), with the provided code in this repository. 
 - The architecture should be pipelined or Tomasulo. 
 
 ##### Grading Policy
@@ -19,7 +19,39 @@
   3. Support the rest of RV32I Instruction set (2.7-2.9 in the manual above) and privileged architecture(section 2 and section 3 in [RISC-V architecture manual][https://riscv.org//wp-content/uploads/2017/05/riscv-privileged-v1.10.pdf]). Finally, you will be able to port FreeRTOS on FPGA with your design and some provided code. You will get 20% and an extra 5 pts for this. 
   4. Whatever more, but discuss with TA first. 
 
-- A design meeting part of a requirement can get part of corresponding points. 
+- A design meeting part of a requirement can get part of its corresponding points. 
 
 #### Details
+
+##### RISCV-Toolchain
+
+The configure is: 
+
+```./configure --prefix=/opt/riscv --with-arch=rv32i --with-abi=ilp32```
+
+(BTW, you may use arch rv32gc for your compiler project, so keep the installation package)
+
+##### Custom
+
+In this project, the size of memory(ram) is 128K, so only address lower than 0x20000 is available. However, reading and writing from 0x30000 and 0x30004 have special meaning, you can see ‘riscv/src/cpu.v' for more details. (You can just regard the two as normal address)
+
+##### Simulation using iverilog
+
+```
+cd ./riscv/src
+iverilog *.v common/*/*.v
+vvp a.out
+```
+
+##### Serial
+
+Serial( [wjwwood/serial](https://github.com/wjwwood/serial)) is a cross-platform serial port library to help your design working on FPGA when receiving from UART. Build it by: 
+
+```
+cd serial
+make
+make install
+```
+
+##### FPGA
 
