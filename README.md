@@ -55,3 +55,35 @@ make install
 
 ##### FPGA
 
+We'll provide you with Basys3 FPGA board. Use Vivado to generate bitstream and program the FPGA device. Then:
+
+In directory 'ctrl', build the controller by
+
+```
+./build.sh
+```
+
+Modify and run the script
+
+```
+./run_test_fpga.sh testname
+```
+
+One thing need to be modified is the USB port number of the script. For example in Windows you could find it in Devices and Printers -> Digilent USB Device -> Hardware. The number X that presented in the last line of Device Functions 'USB Serial Port (COMX)' is the port you need. The port format should be like:
+
+```
+on Linux: /dev/ttyUSBX
+on WSL: /dev/ttySX
+on Windows: COMX
+```
+
+##### Update Note
+
+For some strong students that start project early based on last year's assignment, here are some changes we've made this year:
+
+1. Fixed a bug in  `hci.v`  that may cause you get wrong return value when two consecutive readings are from different data sources.
+2. A new `input wire io_buffer_full`  that will show the output buffer is full and you should stall -- otherwise some output will be missing when output requests are intensive.
+
+##### Q&A
+
+You may meet various problems, especially when start testing on FPGA. Feel free to contact any TA for help.
