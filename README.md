@@ -81,7 +81,7 @@ on Windows: COMX
 
 For some strong students that start project early based on last year's assignment, here are some changes we've made this year:
 
-1. Fixed a bug in  `hci.v`  that may cause you get wrong return value when two consecutive readings are from different data sources.
+1. Fixed a bug in  `riscv_top.v`  that may cause you get wrong return value when two consecutive readings are from different data sources.
 2. A new `input wire io_buffer_full`  that will show the output buffer is full and you should stall -- otherwise some output will be missing when output requests are intensive.
 
 ##### Q&A
