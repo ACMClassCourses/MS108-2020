@@ -6,7 +6,7 @@
 
 ##### Basic Requirement
 
-- Use Verilog to implement a CPU supporting part of RV32I Instruction set(2.1-2.6 in [RISC-V user manual][https://riscv.org//wp-content/uploads/2017/05/riscv-spec-v2.2.pdf]), with the provided code in this repository. 
+- Use Verilog to implement a CPU supporting part of RV32I Instruction set(2.1-2.6 in [RISC-V user manual](https://riscv.org//wp-content/uploads/2017/05/riscv-spec-v2.2.pdf)), with the provided code in this repository. 
 - The architecture should be pipelined or Tomasulo. 
 
 ##### Grading Policy
@@ -16,7 +16,7 @@
 - Here are some bonus parts. Except (3), the sum of bonus will not exceed 20%: 
   1. Implement branch prediction and d-cache. Based on your performance and complexity(e.g., 1-bit global branch prediction is obviously simpler than BTB), you will get 10%~20%. 
   2. A Tomasulo architecture CPU that does not halt in every branch instruction. Send your design before code review. You will get 20% for this. 
-  3. Support the rest of RV32I Instruction set (2.7-2.9 in the manual above) and privileged architecture(section 2 and section 3 in [RISC-V architecture manual][https://riscv.org//wp-content/uploads/2017/05/riscv-privileged-v1.10.pdf]). Finally, you will be able to port FreeRTOS on FPGA with your design and some provided code. You will get 20% and an extra 5 pts for this. 
+  3. Support the rest of RV32I Instruction set (2.7-2.9 in the manual above) and privileged architecture(section 2 and section 3 in [RISC-V privileged architecture manual](https://riscv.org//wp-content/uploads/2017/05/riscv-privileged-v1.10.pdf)). Finally, you will be able to port FreeRTOS on FPGA with your design and some provided code. You will get 20% and an extra 5 pts for this. 
   4. Whatever more, but discuss with TA first. 
 - A design meeting part of a requirement can get part of its corresponding points. 
 - The course project assignment is not mature yet. Please give practical suggestions or bug fixes for next year's project if you feel somewhere uncomfortable with current project. You should prepare a short note or presentation for your findings. You will get extra 2% for this. If you implement your suggestion and it's meaningful in both educational purpose and project perfection purpose, the extra credit will be raised up -- up to 10%. It will be a complement for your bonus part, or extra 1 point in the final grading if you get full mark in the project.
