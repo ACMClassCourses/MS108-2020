@@ -2,6 +2,30 @@
 
 **Still updating...**
 
+#### Repo Structure
+
+```
+|--docs/
+|  |--YPU/				A demo-use simplified 5-stage pipelined CPU
+|  |--vivadoDemo.pdf	A demo about how to create a project in Vivado
+|--riscv/
+|  |--ctrl/				Interface with FPGA
+|  |--sim/				Testbench, add to Vivado project only in simulation
+|  |--src/				Where your code should be
+|  |  |--common/				Provided UART and RAM
+|  |  |--Basys-3-Master.xdc		constraint file
+|  |  |--cpu.v					Fill it. 
+|  |  |--hci.v					A bus between UART/RAM and CPU
+|  |  |--ram.v					RAM
+|  |  |--riscv_top.v			Top design
+|  |--sys/				Help compile
+|  |--testcase/			Testcases
+|  |--build_test.sh		Run it to build test.data from test.c
+|  |--run_test.sh		Run test
+|  |--run_test_fpga.sh	Run test on FPGA
+|--serial/				A third-party library for interfacing with FPGA ports
+```
+
 #### Requirement
 
 ##### Basic Requirement
