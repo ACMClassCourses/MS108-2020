@@ -115,4 +115,8 @@ For some strong students that start project early based on last year's assignmen
 
 ##### Q&A
 
+1. `rdy_in` and `rst_in`
+
+   The `rst_in` has higher priority with `rdy_in`, and you CANNOT DO ANYTING when `rdy_in` is zero. `rdy_in` does not affect the result of simulation, but has effect when running on FPGA. 
+
 You may meet various problems, especially when start testing on FPGA. Feel free to contact any TA for help.
