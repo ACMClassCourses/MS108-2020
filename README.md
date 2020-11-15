@@ -57,7 +57,7 @@ The configure is:
 
 ##### Custom
 
-In this project, the size of memory(ram) is 128K, so only address lower than 0x20000 is available. However, reading and writing from 0x30000 and 0x30004 have special meaning, you can see ‘riscv/src/cpu.v' for more details. (You can just regard the two as normal address)
+In this project, the size of memory(ram) is 128K, so only address lower than 0x20000 is available. However, reading and writing from 0x30000 and 0x30004 have special meaning, you can see `riscv/src/cpu.v` for more details. (You can just regard the two as normal address)
 
 ##### Simulation using iverilog
 
@@ -71,11 +71,22 @@ vvp a.out
 
 Serial( [wjwwood/serial](https://github.com/wjwwood/serial)) is a cross-platform serial port library to help your design working on FPGA when receiving from UART. Build it by: 
 
-```
+```bash
 cd serial
 make
 make install
 ```
+
+##### Build test
+
+Use the following command to build a test, it will be a `test.data` file in folder `/riscv/test/`: 
+
+```bash
+cd riscv
+./build_test.sh testname
+```
+
+You can see all tests in `/riscv/testcase/` folder. 
 
 ##### FPGA
 
