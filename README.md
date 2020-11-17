@@ -2,7 +2,7 @@
 
 **Still updating...**
 
-## Repo Structure
+#### Repo Structure
 
 ```
 |--docs/
@@ -26,14 +26,14 @@
 |--serial/				A third-party library for interfacing with FPGA ports
 ```
 
-## Requirement
+#### Requirement
 
-### Basic Requirement
+##### Basic Requirement
 
 - Use Verilog to implement a CPU supporting part of RV32I Instruction set(2.1-2.6 in [RISC-V user manual](https://riscv.org//wp-content/uploads/2017/05/riscv-spec-v2.2.pdf)), with the provided code in this repository. 
 - The architecture should be pipelined or Tomasulo. 
 
-### Grading Policy
+##### Grading Policy
 
 - A 5-stage pipelined or Tomasulo CPU passing all tests in this repository with i-cache makes you get 75%. 
 - Implementing your design on FPGA makes you get 5%. 
@@ -45,9 +45,9 @@
 - A design meeting part of a requirement can get part of its corresponding points. 
 - The course project assignment is not mature yet. Please give practical suggestions or bug fixes for next year's project if you feel somewhere uncomfortable with current project. You should prepare a short note or presentation for your findings. You will get extra 2% for this. If you implement your suggestion and it's meaningful in both educational purpose and project perfection purpose, the extra credit will be raised up -- up to 10%. It will be a complement for your bonus part, or extra 1 point in the final grading if you get full mark in the project.
 
-## Details
+#### Details
 
-### RISCV-Toolchain
+##### RISCV-Toolchain
 
 For prerequisities, go to see https://github.com/riscv/riscv-gnu-toolchain to install necessary packages.
 The configure is: 
@@ -61,23 +61,23 @@ sudo make
 
 The following are some common problems you may meet when make
 
-#### make failed
+###### make failed
 
 Please first check whether you use `sudo` before `make` due to default permission setting of linux.
 
-#### checking for sysdeps preconfigure fragments... aarch64 alpha arm csky hppa i386 m68k microblaze mips nios2 powerpc riscv glibc requires the A extension
+###### checking for sysdeps preconfigure fragments... aarch64 alpha arm csky hppa i386 m68k microblaze mips nios2 powerpc riscv glibc requires the A extension
 
 Use configuration `./configure --prefix=/opt/riscv --with-arch=rv32ia --with-abi=ilp32`
 
-#### xxx-ld: cannot find -lgcc
+###### xxx-ld: cannot find -lgcc
 
 Go to see https://github.com/riscv/riscv-gnu-toolchain/issues/522.
 
-### Custom
+##### Custom
 
 In this project, the size of memory(ram) is 128K, so only address lower than 0x20000 is available. However, reading and writing from 0x30000 and 0x30004 have special meaning, you can see `riscv/src/cpu.v` for more details. (You can just regard the two as normal address)
 
-### Simulation using iverilog
+##### Simulation using iverilog
 
 ```
 cd ./riscv/src
@@ -85,7 +85,7 @@ iverilog *.v common/*/*.v
 vvp a.out
 ```
 
-### Serial
+##### Serial
 
 Serial( [wjwwood/serial](https://github.com/wjwwood/serial)) is a cross-platform serial port library to help your design working on FPGA when receiving from UART. Build it by: 
 
@@ -95,7 +95,7 @@ make
 make install
 ```
 
-### Build test
+##### Build test
 
 Use the following command to build a test, it will be a `test.data` file in folder `/riscv/test/`: 
 
@@ -106,7 +106,7 @@ cd riscv
 
 You can see all tests in `/riscv/testcase/` folder. 
 
-### FPGA
+##### FPGA
 
 We'll provide you with Basys3 FPGA board. Use Vivado to generate bitstream and program the FPGA device. Then:
 
@@ -130,7 +130,7 @@ on WSL: /dev/ttySX
 on Windows: COMX
 ```
 
-### Update Note
+##### Update Note
 
 For some strong students that start project early based on last year's assignment, here are some changes we've made this year:
 
@@ -142,7 +142,7 @@ For some strong students that start project early based on last year's assignmen
 
    You're welcome to fix this problem by modifying preset code. Elegant implementation will be counted as bonus.
 
-### Q&A
+##### Q&A
 
 1. `rdy_in` and `rst_in`
 
