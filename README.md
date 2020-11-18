@@ -49,11 +49,29 @@
 
 ##### RISCV-Toolchain
 
+For prerequisities, go to see https://github.com/riscv/riscv-gnu-toolchain to install necessary packages.
 The configure is: 
 
-```./configure --prefix=/opt/riscv --with-arch=rv32i --with-abi=ilp32```
-
+```
+./configure --prefix=/opt/riscv --with-arch=rv32i --with-abi=ilp32
+sudo make
+```
+**DO NOT** use `sudo make linux` which you may use in PPCA. If you have made it, just rerun `sudo make` without any deletion and everything will be ok.
 (BTW, you may use arch rv32gc for your compiler project, so keep the installation package)
+
+The following are some common problems you may meet when make
+
+###### make failed
+
+Please first check whether you use `sudo` before `make` due to default permission setting of linux.
+
+###### checking for sysdeps preconfigure fragments... aarch64 alpha arm csky hppa i386 m68k microblaze mips nios2 powerpc riscv glibc requires the A extension
+
+Use configuration `./configure --prefix=/opt/riscv --with-arch=rv32ia --with-abi=ilp32`
+
+###### xxx-ld: cannot find -lgcc
+
+Go to see https://github.com/riscv/riscv-gnu-toolchain/issues/522.
 
 ##### Custom
 
