@@ -148,4 +148,14 @@ For some strong students that start project early based on last year's assignmen
 
    The `rst_in` has higher priority with `rdy_in`, and you CANNOT DO ANYTING when `rdy_in` is zero. `rdy_in` does not affect the result of simulation, but has effect when running on FPGA. 
 
+2. Write twice in simulation
+
+   This is often OK in simulation, because it uses `$write()` in a combinational circuit to simulate a write(you can find it in `hci.v`), and by the property of combinational circuit, this instruction may be executed twice. 
+
+   In FPGA if everything you write is correct this will not happen. 
+
+3. connect with FPGA
+
+   Use the micro USB port on the FPGA, since we use RS232 to transmit data. 
+
 You may meet various problems, especially when start testing on FPGA. Feel free to contact any TA for help.
