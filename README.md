@@ -130,6 +130,17 @@ on WSL: /dev/ttySX
 on Windows: COMX
 ```
 
+Your Vivado may unable to discover your FPGA, this may be caused by the lack of corresponding driver, install it by(use your own version to replace `2018.2`): 
+
+```bash
+cd $PATH_TO_VIVADO/2018.2/data/xicom/cable_drivers/lin64
+sudo cp -i -r install_script /opt
+cd /opt/install_script/install_drivers
+sudo ./install_drivers
+```
+
+Then restart Vivado. 
+
 ##### Update Note
 
 For some strong students that start project early based on last year's assignment, here are some changes we've made this year:
