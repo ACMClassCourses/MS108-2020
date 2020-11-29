@@ -75,7 +75,7 @@ Go to see https://github.com/riscv/riscv-gnu-toolchain/issues/522.
 
 ##### Custom
 
-In this project, the size of memory(ram) is 128K, so only address lower than 0x20000 is available. However, reading and writing from 0x30000 and 0x30004 have special meaning, you can see `riscv/src/cpu.v` for more details. (You can just regard the two as normal address)
+In this project, the size of memory(ram) is 128K, so only address lower than 0x20000 is available. However, reading and writing from 0x30000 and 0x30004 have special meaning, you can see `riscv/src/cpu.v` for more details. 
 
 ##### Simulation using iverilog
 
