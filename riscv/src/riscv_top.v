@@ -34,7 +34,7 @@ begin
 	end
 	else 
 	begin
-		rst_delay	<=	1'b0;
+		rst_delay	<=	1'b0 | program_finish;
 		rst			<=	rst_delay;
 	end
 end
@@ -93,6 +93,8 @@ wire [ 7:0]					hci_io_dout;
 wire 						hci_io_wr;
 wire 						hci_io_full;
 
+wire						program_finish;
+
 reg                         q_hci_io_en;
 
 cpu cpu0(
@@ -129,6 +131,8 @@ hci #(.SYS_CLK_FREQ(SYS_CLK_FREQ),
 	.io_dout(hci_io_dout),
 	.io_wr(hci_io_wr),
 	.io_full(hci_io_full),
+
+	.program_finish(), 
 
 	.cpu_dbgreg_din(cpu_dbgreg_dout)	// demo
 );
