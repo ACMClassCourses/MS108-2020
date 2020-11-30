@@ -12,7 +12,7 @@
 |  |--ctrl/				Interface with FPGA
 |  |--sim/				Testbench, add to Vivado project only in simulation
 |  |--src/				Where your code should be
-|  |  |--common/				Provided UART and RAM
+|  |  |--common/		Provided UART and RAM
 |  |  |--Basys-3-Master.xdc		constraint file
 |  |  |--cpu.v					Fill it. 
 |  |  |--hci.v					A bus between UART/RAM and CPU
@@ -20,7 +20,10 @@
 |  |  |--riscv_top.v			Top design
 |  |--sys/				Help compile
 |  |--testcase/			Testcases
+|  |--autorun_fpga.sh	Autorun Testcase on FPGA
 |  |--build_test.sh		Run it to build test.data from test.c
+|  |--FPGA_test.py		Test correctness on FPGA
+|  |--pd.tcl			program device the bitstream onto FPGA
 |  |--run_test.sh		Run test
 |  |--run_test_fpga.sh	Run test on FPGA
 |--serial/				A third-party library for interfacing with FPGA ports
@@ -140,6 +143,15 @@ sudo ./install_drivers
 ```
 
 Then restart Vivado. 
+
+To run your bitstream on FPGA, you can run: 
+
+```bash
+cd riscv
+python FPGA_test.py
+```
+
+You need to modify the `path_of_bit` in `FPGA_test.py` first. 
 
 ##### Update Note
 
