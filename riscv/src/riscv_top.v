@@ -132,7 +132,7 @@ hci #(.SYS_CLK_FREQ(SYS_CLK_FREQ),
 	.io_wr(hci_io_wr),
 	.io_full(hci_io_full),
 
-	.program_finish(), 
+	.program_finish(program_finish), 
 
 	.cpu_dbgreg_din(cpu_dbgreg_dout)	// demo
 );
