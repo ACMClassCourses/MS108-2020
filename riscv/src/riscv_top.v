@@ -34,7 +34,7 @@ begin
 	end
 	else 
 	begin
-		rst_delay	<=	1'b0 | program_finish;
+		rst_delay	<=	1'b0;
 		rst			<=	rst_delay;
 	end
 end
@@ -99,7 +99,7 @@ reg                         q_hci_io_en;
 
 cpu cpu0(
 	.clk_in(clk),
-	.rst_in(rst),
+	.rst_in(rst | program_finish),
 	.rdy_in(cpu_rdy),
 
 	.mem_din(cpu_ram_din),
