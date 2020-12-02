@@ -50,6 +50,8 @@ module hci
   input   wire                        io_wr,            // I/O write/read select
   output  wire                        io_full,          // I/O buffer full signal 
 
+  output  reg                         program_finish,   // program finish signal
+
   input   wire  [31:0]                cpu_dbgreg_din    // cpu debug register read bus
 );
 
@@ -232,6 +234,8 @@ always @*
     d_io_in_wr_en = 1'b0;
     d_io_in_wr_data = 8'h00;
 
+    program_finish = 1'b0;
+
     if (parity_err)
       d_err_code[DBG_UART_PARITY_ERR] = 1'b1;
 
@@ -251,6 +255,7 @@ always @*
               d_wr_en = 1'b1;
             end
             d_state = S_DECODE; 
+            program_finish = 1'b1;
             $display("IO:Return");
             $finish;
           end
