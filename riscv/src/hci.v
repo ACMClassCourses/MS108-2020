@@ -143,6 +143,7 @@ assign cpu_dbgreg_seg[0] = cpu_dbgreg_din[7:0];
 reg  [31:0] q_cpu_cycle_cnt;
 wire [31:0] d_cpu_cycle_cnt;
 assign d_cpu_cycle_cnt = active ? q_cpu_cycle_cnt : q_cpu_cycle_cnt + 1'b1;
+reg d_program_finish;
 
 // Update FF state.
 always @(posedge clk)
