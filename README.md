@@ -1,7 +1,5 @@
 # MS108-2020
 
-**Still updating...**
-
 #### Repo Structure
 
 ```
@@ -182,3 +180,11 @@ For some strong students that start project early based on last year's assignmen
    Use the micro USB port on the FPGA, since we use RS232 to transmit data. 
 
 You may meet various problems, especially when start testing on FPGA. Feel free to contact any TA for help.
+
+##### Known issues (2021.2.3)
+
+1. Some will fail to run the second time on FPGA. One quick solution is to let `rst = rst_in | ~rdy_in`, however it's somehow incorrect. We hope the future TAs to investigate the phenomenom and give a correct solution.
+
+2. There's not a quick simulation check test case. One possible way is to mix up some test cases that can check those CPUs failed to run on FPGA using tolerable time while not to be much easier than passing all test cases. We didn't write one yet. Also, it may be hard to design, since some failures occur with only a few strange and specific conditions.
+
+3. Our updated version of `hcl` and `top` are not good enough, since it requires combinational circuits not to consider `rst` --- or timing loop will occur since `rst` is connected to `program_finish` driven by combinational circuits. Better design may be required.
